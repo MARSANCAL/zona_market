@@ -18,7 +18,7 @@ export class GmapsService {
       const script = document.createElement('script');
       script.src =
         'https://maps.googleapis.com/maps/api/js?key=' +
-        environment.googleMapApiKey;
+        environment.googleMapsApiKey;
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
