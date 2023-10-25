@@ -1,0 +1,41 @@
+<ion-header  id="head" [translucent]="true">
+<ion-grid>
+  <ion-row>
+  <ion-back-button></ion-back-button>
+    <ion-col> <img class="im"src="assets/img/Logo ZonaMarket1.png" /> </ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-grid>   
+</ion-header>
+
+
+<ion-content id="container" padding class="background" [fullscreen]="true">
+<br><br><br><br><br>
+  
+  <form [formGroup] = "formularioRegistro">
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre"type="text" required></ion-input>
+    </ion-item>
+      <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password"type="password" required minlength="6"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating"> Repetir Contraseña</ion-label>
+      <ion-input formControlName="confirmacion-password" type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="registrar()"type="submit" color="danger" expand="block">Crear Usuario</ion-button>
+      </ion-col>
+    </ion-row>
+    <br><br>
+    <a [routerLink]="['/login']" class="small-text" >¿Ya tienes una cuenta?</a>
+  </form>
+</ion-content>

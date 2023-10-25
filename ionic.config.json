@@ -1,0 +1,7 @@
+{
+  "name": "zona_market",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

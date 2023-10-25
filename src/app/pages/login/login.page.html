@@ -1,0 +1,33 @@
+<ion-header  id="head" [translucent]="true">
+<ion-grid>
+  <ion-row>
+    <ion-col> <img id="im"src="assets/img/Logo ZonaMarket1.png" /> </ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-grid>   
+</ion-header>
+
+<ion-content padding class="background" [fullscreen]="true">
+
+    <form id="container" [formGroup] ="folmularioLogin">
+      <ion-item lines="full" >
+        <ion-label color="light" position="floating">Usuario</ion-label>
+        <ion-input formControlName="nombre" type="text" [(ngModel)]="user.nombre" required></ion-input>
+      </ion-item>
+      <ion-item lines="inset" >
+        <ion-label color="light" position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password" [(ngModel)]="user.password" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+        <br>
+          <ion-button (click)="ingresar()" type="submit" id="tamaño" color="danger" >Iniciar Sesión</ion-button>
+          <br><br>
+          <a [routerLink]="['/forgot-password']" class="small-text" >¿Olvidó su Contraseña?</a>
+          <br><br>
+          <a [routerLink]="['/register']" class="small-text" >Registrarse</a>
+        </ion-col>
+      </ion-row>
+    </form>
+</ion-content>
