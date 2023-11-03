@@ -28,21 +28,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule) //,canActivate: [NoIngresadoGuard]
   },
   {
-    path: 'modif-item',
-    loadChildren: () => import('./pages/modif-item/modif-item.module').then( m => m.ModifItemPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
-    path: 'reg-item',
-    loadChildren: () => import('./pages/reg-item/reg-item.module').then( m => m.RegItemPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
-    path: 'item',
-    loadChildren: () => import('./pages/item/item.module').then( m => m.ItemPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule) //,canActivate: [NoIngresadoGuard]
 
