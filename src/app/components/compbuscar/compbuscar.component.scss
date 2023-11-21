@@ -1,0 +1,18 @@
+.map {
+    position: center;
+    height: 60%;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+    
+  }
+
+.map.visible {
+    opacity: 1;
+}
+.serarch{
+  margin-top: 35%;
+}

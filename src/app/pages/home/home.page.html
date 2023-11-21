@@ -1,0 +1,33 @@
+<ion-header size="2" id="head" [translucent]="true">
+  <ion-grid size="4" >
+    <ion-row size="4">
+      <ion-col size="4">
+        <img size="" id="im"src="assets/img/Logo ZonaMarket1.png" />
+      </ion-col>
+      <ion-col size="4">Bienvenido/a : {{data.nombre}}</ion-col>
+      <ion-col size="4"> <ion-button type="submit" color="danger" expand="block" (click)="presentAlert()">Cerrar Sesión</ion-button> </ion-col>
+    </ion-row>
+  </ion-grid>   
+  </ion-header>
+  
+  <ion-content [fullscreen]="true" size="8" class="backfondent"> 
+    <ion-router-outlet></ion-router-outlet>
+    <br><br><br><br>
+  </ion-content>
+  
+  <ion-segment size="4" (ionChange)="segmentChanged($event)" id="with">
+          <ion-segment-button value="buscador">
+            <ion-icon name="home"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="favorito">
+            <ion-icon name="heart"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="comercios">
+            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>          </ion-segment-button>
+          <ion-segment-button value="mas">
+            <ion-icon name="musical-notes"></ion-icon>
+          </ion-segment-button>
+  </ion-segment>
+  
+  
+  

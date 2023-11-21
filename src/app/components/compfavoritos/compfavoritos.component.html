@@ -1,0 +1,203 @@
+<br><br><br><br>
+<ion-content class="backfondent" [fullscreen]="true">
+<br><br><br>
+<div class="glass-content">
+
+<ion-button (click)="toggleReorder()"> Ordenar mis Comercios </ion-button>
+
+<!-- sliding mercado favorito-->
+<ion-col class="ion-text-center">
+<ion-card>
+    <ion-card-header>
+    <ion-card-title>Comercios Favorito</ion-card-title>
+    </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+
+  <ion-reorder-group [disabled]="isDisabled" (ionItemReorder)="handleReorder($any($event))">
+
+  <ion-item-sliding>
+    <ion-item-options side="start">
+      <ion-item-option color="success" (click)="play()">Más</ion-item-option>
+    </ion-item-options>
+
+    <ion-item>
+        <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+      <ion-label> El Chapo </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item-options (click)="toggleIcon()">
+      <ion-item-option ><ion-icon slot="bottom" [name]="icon" ></ion-icon>
+      {{ icon === 'heart-outline' ? 'Agregar' : 'Quitar'}}
+      </ion-item-option>
+      <ion-item-option  (click)="play1()"color="danger">
+        <ion-icon slot="bottom" name="trash"></ion-icon>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <ion-item-sliding>
+    <ion-item-options side="start">
+      <ion-item-option color="success" (click)="play()">Más</ion-item-option>
+    </ion-item-options>
+
+    <ion-item>
+        <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+      <ion-label> Acuenta </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item-options (click)="toggleIcon()">
+      <ion-item-option ><ion-icon slot="bottom" [name]="icon" ></ion-icon>
+      {{ icon === 'heart-outline' ? 'Agregar' : 'Quitar'}}
+      </ion-item-option>
+      <ion-item-option  (click)="play1()"color="danger">
+        <ion-icon slot="bottom" name="trash"></ion-icon>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <ion-item-sliding>
+    <ion-item-options side="start">
+      <ion-item-option color="success" (click)="play()">Más</ion-item-option>
+    </ion-item-options>
+
+    <ion-item>
+        <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+      <ion-label> LaEsquina </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item-options (click)="toggleIcon()">
+      <ion-item-option ><ion-icon slot="bottom" [name]="icon" ></ion-icon>
+      {{ icon === 'heart-outline' ? 'Agregar' : 'Quitar'}}
+      </ion-item-option>
+      <ion-item-option  (click)="play1()"color="danger">
+        <ion-icon slot="bottom" name="trash"></ion-icon>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <ion-item-sliding>
+    <ion-item-options side="start">
+      <ion-item-option color="success" (click)="play()">Más</ion-item-option>
+    </ion-item-options>
+
+    <ion-item>
+        <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+      <ion-label> ElBajon </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item-options (click)="toggleIcon()"> 
+      <ion-item-option ><ion-icon slot="bottom" [name]="icon" ></ion-icon>
+      {{ icon === 'heart-outline' ? 'Agregar' : 'Quitar'}}
+      </ion-item-option>
+      <ion-item-option  (click)="play1()"color="danger">
+        <ion-icon slot="bottom" name="trash"></ion-icon>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  </ion-reorder-group>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-col>
+
+<!--crear mercado-->
+<!--
+<ion-row >
+<ion-col class="ion-text-center">
+<ion-card>
+  <ion-col  size="12">
+  <ion-card-header>
+    <ion-card-title>Ingresar Mercado</ion-card-title>
+  </ion-card-header>
+  <ion-item>
+    <ion-label position="floating">Nombre del Mercado</ion-label>
+    <ion-input [(ngModel)]="mercado.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tipo de Mercado</ion-label>
+    <ion-input [(ngModel)]="mercado.tipo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Comuna del Mercado</ion-label>
+    <ion-input [(ngModel)]="mercado.comuna"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Pais del Mercado</ion-label>
+    <ion-input [(ngModel)]="mercado.pais"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Coordenada de Mercado</ion-label>
+    <ion-input [(ngModel)]="mercado.coordenada"></ion-input>
+  </ion-item>
+<ion-row>
+  <ion-col size="6">
+    <ion-button  expand="block" (click)="limpiar()" color="warning" shape="round">
+      Limpiar
+</ion-button>
+  </ion-col>
+  <ion-col size="6">
+    <ion-button  expand="block" (click)="addMercado()" color="success" shape="round">
+      Agregar Mercado
+    </ion-button>
+  </ion-col>
+</ion-row>
+</ion-col>
+</ion-card>
+</ion-col>
+</ion-row>
+
+--api mercados
+
+<ion-grid>
+<ion-row *ngFor="let m of mercados">
+<ion-col class="ion-text-center">
+    <ion-card>
+      <ion-col  size="12">
+      <ion-card-header>
+        <ion-card-title>Nombre: {{m.nombre}} </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Tipo: {{m.tipo}}
+        <br>
+        Comuna: {{m.comuna}}
+        <br>
+        Pais: {{m.pais}}
+        <br>
+        Coordenada: {{m.coordenada}}
+      </ion-card-content>
+      </ion-col>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button  expand="block" [routerLink]="['/edit-mercado',m.id]" (click)="getMercadoId(m.id)" color="warning" shape="round">Editar</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button  expand="block" (click)="deletMercado(m.id)" color="danger" shape="round">
+            Borrar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+</ion-col>
+</ion-row>
+</ion-grid>
+-->
+</div>
+</ion-content >

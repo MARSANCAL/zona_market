@@ -1,0 +1,272 @@
+<br><br><br><br>
+<ion-content class="backfondent" [fullscreen]="true">
+<br><br><br>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title color="light">Mis Datos</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+      <ion-thumbnail slot="end">
+        <a><ion-button color="" expand="block" (click)="setOpen4(true)" >Ir</ion-button></a>
+
+        <ion-content  class="backfondentt" >
+        <ion-modal [isOpen]="isModalOpen4">
+          <ng-template >
+            <ion-header [translucent]="true">
+              <ion-buttons slot="end">
+                  <ion-button (click)="setOpen4(false)"><ion-icon name="chevron-back-sharp"></ion-icon></ion-button>
+              </ion-buttons>
+            </ion-header>
+
+            <ion-content  class="ion-padding backfondent "  [fullscreen]="true" >
+              <form id="container" >
+                <ion-item lines="full">
+                  <ion-label position="floating">Nombres y Apellidos</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Teléfono</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Contraseña</ion-label>
+                  <ion-input type="password" required></ion-input>
+                </ion-item>
+                <ion-row>
+                  <ion-col>
+                    <ion-button type="submit" color="danger" expand="block">Editar Datos</ion-button>
+                  </ion-col>
+                </ion-row>
+              </form>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+        </ion-content>
+        </ion-thumbnail>
+        <ion-label >Datos de Usuario</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-thumbnail slot="end">
+          <a [routerLink]="['/forgot-password']" ><ion-button type="submit" color="" expand="block">Ir</ion-button></a>
+        </ion-thumbnail>
+        <ion-label>¿Olvidó su Contraseña?</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content >
+</ion-card>
+
+
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Información</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+    <ion-list>
+
+      <ion-item>
+          <ion-thumbnail slot="end">
+          <ion-content class="backfondentt">
+        <ion-button expand="block" (click)="setOpen3(true)">ir</ion-button>
+        <ion-modal [isOpen]="isModalOpen3">
+          <ng-template>
+
+            <ion-header [translucent]="true">
+                <ion-buttons slot="end">
+                  <ion-button (click)="setOpen3(false)"><ion-icon name="chevron-back-sharp"></ion-icon></ion-button>
+                </ion-buttons>
+            </ion-header>
+
+            <ion-content  id="container" class="ion-padding backfondent " [fullscreen]="true">
+            <br><br><br><br><br><br><br><br><br>
+              <div class="centrado">
+              <ion-card >
+              <ion-card-header>
+                <ion-card-title class="ion-center">Como Pagar</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content  class="ion-text-center">
+                El formato para pagar en nustra aplicacion es de manera remota ya que nustra aplicacion solo sirve para buscar comercios y comunicarse entre ellos para hacer el pedido, el formato de pago depende del comercio y la persona ya que podria hacer un pedido con delibery o con retiro en tienda. Nuestra aplicacion no cuenta con Tarjeta Electronica asi que se debe pagar por medios externos a Zona Marketa
+              </ion-card-content>
+              </ion-card>
+              </div>
+            </ion-content>
+
+          </ng-template>
+        </ion-modal>
+        </ion-content>
+        </ion-thumbnail>
+        <ion-label>¿Cómo pagar?</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="end">
+        <ion-content class="backfondentt">
+        <ion-button expand="block" (click)="setOpen2(true)">ir</ion-button>
+        <ion-modal [isOpen]="isModalOpen2">
+          <ng-template>
+
+            <ion-header [translucent]="true">
+                <ion-buttons slot="end">
+                  <ion-button (click)="setOpen2(false)"><ion-icon name="chevron-back-sharp"></ion-icon></ion-button>
+                </ion-buttons>
+            </ion-header>
+
+            <ion-content id="container" class="ion-padding backfondent" [fullscreen]="true">
+            <br><br><br>
+              <ion-list id="h" lines="full">
+                <h3><ion-label>Como se Ocupa la app?</ion-label></h3>
+                <p><ion-label>La app se ocupa de manera interactiva, se inicia sesion de igual manera que en cualquier aplicacion, al llegar al inicio de la aplicacion se mostrara el pagar y abajo una barra en donde podra navegar en sus diferentes vistas</ion-label></p>
+              </ion-list>
+
+              <ion-list id="h" lines="full">
+                <h3><ion-label>Como se cambian los datos del Usuario?</ion-label></h3>
+                <p><ion-label>Para cambioar los datos personales del ususrio se debe dirijir al apartado inferiro donde dice "Más"  y alli detro podras encontra un apartado donde dice datos de ususario y elli podras ver tus datos y editarlos</ion-label></p>
+              </ion-list>
+
+              <ion-list id="h" lines="full">
+              <h3><ion-label>Como se Buscan Mercados?</ion-label></h3>
+              <p><ion-label>Para buscar mmercados mediante la app ZonaMarket debe ir a el apartado inferiro dondd dice "Comercios" donde podra encontrar la api de Google Maps para buscar todos los mercados ingresados a su alrededor, al seleccionar alguno de ellos de desplegara una ventana la cula tendra la informacion correspomndiente de su menrcado y el contacto con este para hacer cualquier tipo de pedidod</ion-label></p>
+              </ion-list>
+
+            </ion-content>
+
+          </ng-template>
+        </ion-modal>
+        </ion-content>
+        </ion-thumbnail>
+        <ion-label>Preguntas Frecuentes</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="end">
+          <ion-content class="backfondentt">
+        <ion-button expand="block" (click)="setOpen1(true)">ir</ion-button>
+        <ion-modal [isOpen]="isModalOpen1">
+          <ng-template>
+
+            <ion-header [translucent]="true">
+                <ion-buttons slot="end">
+                  <ion-button (click)="setOpen1(false)"><ion-icon name="chevron-back-sharp"></ion-icon></ion-button>
+                </ion-buttons>
+            </ion-header>
+
+            <ion-content  class="ion-padding backfondent" [fullscreen]="true">
+            
+              <form id="container">
+                <ion-item lines="full">
+                  <ion-label position="floating">Nombres</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Apellidos</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating">Razon de Contacto</ion-label>
+                  <ion-input type="text" required></ion-input>
+                </ion-item>
+                <ion-item lines="full">
+                  <ion-label position="floating"></ion-label>
+                  <ion-input type="file" required></ion-input>
+                </ion-item>
+                <ion-row>
+                  <ion-col>
+                    <ion-button type="submit" color="danger" expand="block">Enviar</ion-button>
+                  </ion-col>
+                </ion-row>
+              </form>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+        </ion-content>
+        </ion-thumbnail>
+        <ion-label>Contacto</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+
+        <ion-thumbnail slot="end">
+          <ion-content class="backfondentt">
+        <ion-button expand="block" (click)="setOpen(true)">ir</ion-button>
+        <ion-modal [isOpen]="isModalOpen">
+          <ng-template>
+
+            <ion-header [translucent]="true">
+                <ion-buttons slot="end">
+                  <ion-button (click)="setOpen(false)"><ion-icon name="chevron-back-sharp"></ion-icon></ion-button>
+                </ion-buttons>
+            </ion-header>
+
+            <ion-content class="ion-padding backfondent" [fullscreen]="true">
+            <br>
+              <h2>1. Introducción</h2>
+              <p>Bienvenido a Zona Market, una aplicación móvil diseñada para ayudarte a encontrar minimarkets cercanos y comunicarte con ellos a través de sus redes sociales. Estos términos y condiciones rigen tu uso de la aplicación Zona Market, así como cualquier servicio relacionado o función ofrecida a través de la aplicación.</p>
+
+              <h2>2. Aceptación de los Términos y Condiciones</h2>
+
+              <p>Al utilizar la aplicación Zona Market, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con estos términos, no debes utilizar la aplicación.</p>
+
+              <h2>3. Uso de la Aplicación</h2>
+
+              <h3>3.1. Registro:</h3> <p>Es posible que necesites registrarte para usar ciertas funciones de la aplicación. Debes proporcionar información precisa y actualizada durante el proceso de registro.</p>
+
+              <h3>3.2. Privacidad:</h3><p> Tu uso de la aplicación está sujeto a nuestra Política de Privacidad. Al utilizar la aplicación, aceptas la recopilación y el uso de tus datos personales de acuerdo con nuestra política de privacidad.</p>
+
+              <h2>4. Contenido Generado por el Usuario</h2>
+
+              <h3>4.1. Responsabilidad:</h3><p> Eres el único responsable de cualquier contenido que publiques o compartas a través de la aplicación, incluyendo comentarios, reseñas, fotos, y cualquier otra información.<p>
+
+              <h3>4.2. Derechos de Propiedad:</h3><p> Al enviar contenido a la aplicación, otorgas a Zona Market una licencia no exclusiva para usar, reproducir, modificar, adaptar, publicar y mostrar dicho contenido en relación con la aplicación.</p>
+
+              <h2>5. Uso Apropiado</h2>
+
+              <h3>5.1. Restricciones:</h3><p> No debes utilizar la aplicación de manera que viole cualquier ley o regulación aplicable. Esto incluye, pero no se limita a, el acoso, la difamación, el spam y la violación de derechos de autor o propiedad intelectual.</p>
+
+              <h2>6. Servicios de Terceros</h2>
+
+              <p>La aplicación Zona Market puede incluir enlaces o integraciones con servicios de terceros, como redes sociales. Estos servicios de terceros tienen sus propios términos y condiciones, y tú eres responsable de cumplir con ellos al utilizar dichos servicios.</p>
+
+              <h2>7. Cambios en los Términos y Condiciones</h2>
+
+              <p>Zona Market se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Los cambios se harán efectivos al publicar la versión actualizada en la aplicación. Te recomendamos revisar periódicamente estos términos para estar al tanto de cualquier modificación.</p>
+
+              <h2>8. Terminación</h2>
+
+              <p>Zona Market se reserva el derecho de suspender o terminar tu acceso a la aplicación en caso de violación de estos términos y condiciones.</p>
+
+              <h2>9. Contacto</h2>
+
+              <p>Si tienes preguntas o inquietudes sobre estos términos y condiciones, puedes contactarnos a través de [tu dirección de contacto].</p>
+
+              <p>Al utilizar la aplicación Zona Market, aceptas estos términos y condiciones. Te recomendamos que los leas detenidamente y que los consultes regularmente para estar al tanto de cualquier cambio.</p>
+
+              <p>Fecha de entrada en vigencia: [06/09/2023]</p>
+
+              <p>Gracias por utilizar Zona Market. ¡Disfruta de la aplicación!</p>
+
+              <p>Este es solo un ejemplo de los términos y condiciones. Es fundamental personalizarlos y ajustarlos según las necesidades específicas de tu aplicación y las leyes de tu país. Además, consulta a un abogado para asegurarte de que estén completamente conformes con las regulaciones locales y nacionales.</p>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+        </ion-content>
+        </ion-thumbnail>
+
+        <ion-label>Términos y Condiciones</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-content>

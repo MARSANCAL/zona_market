@@ -1,0 +1,25 @@
+<ion-header id="head" [translucent]="true">
+<ion-grid>
+  <ion-row>
+  <ion-back-button></ion-back-button>
+    <ion-col> <img id="im"src="assets/img/Logo ZonaMarket1.png" /> </ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-grid>   
+</ion-header>
+
+<ion-content padding class="background"  [fullscreen]="true">
+  <form id="container" [formGroup] ="folmularioForgot">
+    <ion-item lines="full">
+      <ion-label color="light" position="floating">Email</ion-label>
+      <ion-input type="email" required formControlName="email"></ion-input>
+    </ion-item><br><br>
+        <ion-button id="tamaño" type="submit" color="danger" (click)="presentAlert()">Enviar</ion-button>
+    <br><br>
+    <small>
+      Proporcione el nombre de usuario o la dirección de correo electrónico que utilizó cuando firmó
+      para tu cuenta de ZonaMaket.
+    </small>
+  </form>
+</ion-content>

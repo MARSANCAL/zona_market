@@ -24,3 +24,53 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/* Set variables for all modes */
+ion-content.background{
+    --background: url(./assets/img/espacio-abstracto-tarjeta-sol-sol.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.backfondent{
+    --background: url(./assets/img/mm.png) 0 0/100% 100% no-repeat;
+}
+ion-content.backfondentt{
+    --background: #ff9010ce;
+}
+ion-item {
+    --ion-item-background: transparent;
+}
+
+a {
+    color: #fff;
+    position: relative;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    padding: 0 10px;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    background-color: #ff3c78;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+a:hover{
+    color: blue;
+}
+
+a:hover:after {
+    width: 100%;
+}
+
+ion-label {
+    color: #fff !important;
+}
+
+ion-card-title {
+    color: #fff !important;
+}
+

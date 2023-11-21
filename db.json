@@ -1,0 +1,28 @@
+{
+  "mercados": [
+    {
+      "id": 1,
+      "nombre": "Don Pepe",
+      "tipo": "Minimarket",
+      "comuna": "Santiago",
+      "pais": "Chile",
+      "coordenada": 12345
+    },
+    {
+      "id": 2,
+      "nombre": "PK2",
+      "tipo": "Comida Rapida",
+      "comuna": "Valparaiso",
+      "pais": "Chile",
+      "coordenada": 67899
+    },
+    {
+      "id": 3,
+      "nombre": "don tito",
+      "tipo": "kiosko",
+      "pais": "Chile",
+      "coordenada": "34578",
+      "comuna": "Quillota"
+    }
+  ]
+}

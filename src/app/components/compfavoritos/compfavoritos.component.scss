@@ -1,0 +1,18 @@
+ion-item {
+    --padding-start: 0;
+  }
+  ion-card {
+    --ion-item-background: transparent;
+    --ion-item-border: black;
+    color: white;
+    background: #ff9010ce;
+    margin: 10px;
+  
+    --background: red;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    ion-card {
+      --background: red;
+    }
+  }
