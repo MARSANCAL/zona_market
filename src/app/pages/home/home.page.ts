@@ -20,7 +20,7 @@ export class HomePage {
     this.activateRouter.queryParams.subscribe((params) => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userData = this.router.getCurrentNavigation()?.extras.state?.['user'];
-        this.nombre = this.userData.nombre
+        this.nombre = this.userData.this.nombre
         console.log(this.userData);
       } else {
         this.router.navigate(['/inicio']);

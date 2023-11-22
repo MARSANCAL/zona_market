@@ -2,7 +2,8 @@
   "name": "zona_market",
   "integrations": {
     "capacitor": {},
-    "taskkill": false
+    "taskkill": false,
+    "cordova": {}
   },
   "type": "angular"
 }
