@@ -42,15 +42,6 @@
       </ion-item>
 
       <ion-item lines="full">
-        <ion-label>Foto :</ion-label>
-        <ion-buttons slot="end">
-          <ion-button>
-            <input (change)="newImageUpload($event)" type="file" accept="image/*">
-          </ion-button>
-        </ion-buttons>
-      </ion-item>
-
-      <ion-item lines="full">
         <ion-label position="floating">Ubicacion</ion-label>
         <ion-input [(ngModel)]="newm.ubicacion" name="ubicacion" ></ion-input>
       </ion-item>
@@ -78,8 +69,6 @@
           <ion-label>Comuna de Mercado : {{m.comunamer}}</ion-label>
           <ion-label>Descripcion : {{m.descripcion}}</ion-label>
           <ion-label>Ubicacion : {{m.ubicacion}}</ion-label>
-          <ion-label>Foto :</ion-label>
-
           
           <ion-button (click)="newm = m; enableNewc = true;" >
             <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
@@ -95,5 +84,4 @@
   
   </ion-card-content>
 </ion-card>
-<img [src]="newI">
 </ion-content>

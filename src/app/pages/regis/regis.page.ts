@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { Cliente } from 'src/app/interfaces/clientes';
-import { FirebaseauthService } from 'src/app/services/firebaseauth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
@@ -13,66 +13,63 @@ export class RegisPage {
 
   loading: any;
 
-  cliente: Cliente = {
-      uid: '',
-      nombre: '',
-      celular: '',
-      email: ''
-    };
-  
+  private path= 'Clientes/';
+
+  id = this.firestorService.getId();
+  nombre: number;
+  celular: string;
+  email: string;
+  password: string;
+
+
     constructor(
       public alertController: AlertController,
       public navCtrl: NavController,
-      public loadingCtrl: LoadingController,
-      public firebaseAuthService: FirebaseauthService,
-      public firestorService: FirestoreService  ) { }
+      public loadingCtrl: LoadingController, 
+      public toastCtrl: ToastController,
+      public firestorService: FirestoreService,
+      public router: Router  ) { }
   
     async ngOnInit() {
       
     }
   
-    async registrarUser() {
-      const crede = {
-        email: this.cliente.email,
-        password: this.cliente.celular,
+    async registrarUsuario() {
+      const data ={
+        nombre: this.nombre,
+        celular:this.celular,
+        email: this.email,
+        password: this.password,
+        id : this.id
       };
-  
-      try {
-        const ress = await this.firebaseAuthService.register(crede.email, crede.password)
-        .catch(err => console.log('Failed to register',err));
-        console.log('eror ->', ress);
-        const uid = await this.firebaseAuthService.getUid();
-        this.cliente.uid = uid;
-        this.guardarUser();
-        console.log(uid);
-      } catch (error) {
-        console.log('Error detallado:' + error);
-        console.error('Error al registrar usuario en el componente:', error);
-      }
-  
-    }
-  
-      async guardarUser(){
-        const path ='Clientes';
-        const name =this.cliente.nombre;
-        this.firestorService.crearDoc(this.cliente,path,this.cliente.uid)
-        .then( res =>{
-          console.log('guardado con exito');
-        }).catch(error =>{});
-      }
-  
-    async salir() {
-      //const uid = await this.firebaseAuthService.getUid();
-      //console.log(uid);
-      this.firebaseAuthService.logout();
-    }
-  
-    async openLoading() {
-      this.loading = await this.loadingCtrl.create({
-        cssClass: "my-custom-class",
-        message: "Cargando...",
+      this.openLoading();
+      this.firestorService.crearDoc(data, this.path, data.id).then( res => {
+        this.loading.dismiss();
+        this.presentCtrl('Usuario Creado  con Exito!');
+
+        localStorage.setItem('userData', JSON.stringify(data));
+
+        this.router.navigate(['/inicio']);
+      }).catch( error =>{
+        this.presentCtrl('No fue posible guardar. Error: '+ error);
       });
-      await this.loading.present();
-    }
+  }
+    async openLoading() {
+    this.loading = await this.loadingCtrl.create({
+      cssClass: "my-custom-class",
+      message: "Cargando...",
+    });
+    await this.loading.present();
+  }
+
+  async presentCtrl(msg: string) {
+    const toast = await this.toastCtrl.create({
+      cssClass: "my-custom-class",
+      message: msg,
+      duration: 3000,
+      color: "light"
+    });
+    toast.present();
+  }
 
 }

@@ -23,19 +23,19 @@
             <ion-content  class="ion-padding backfondent "  [fullscreen]="true" >
               <form id="container" >
                 <ion-item lines="full">
-                  <ion-label position="floating">Nombres y Apellidos</ion-label>
+                  <ion-label position="floating">Nombres y Apellidos : {{ userData?.nombre }}</ion-label>
                   <ion-input type="text" required></ion-input>
                 </ion-item>
                 <ion-item lines="full">
-                  <ion-label position="floating">Teléfono</ion-label>
+                  <ion-label position="floating">Teléfono : {{ userData?.celular }}</ion-label>
                   <ion-input type="text" required></ion-input>
                 </ion-item>
                 <ion-item lines="full">
-                  <ion-label position="floating">Email</ion-label>
+                  <ion-label position="floating">Email : {{ userData?.email }}</ion-label>
                   <ion-input type="text" required></ion-input>
                 </ion-item>
                 <ion-item lines="full">
-                  <ion-label position="floating">Contraseña</ion-label>
+                  <ion-label position="floating">Contraseña: {{ userData?.password }}</ion-label>
                   <ion-input type="password" required></ion-input>
                 </ion-item>
                 <ion-row>

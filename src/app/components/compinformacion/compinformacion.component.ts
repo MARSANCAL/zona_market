@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input,  } from '@angular/core';
 
 @Component({
   selector: 'app-compinformacion',
   templateUrl: './compinformacion.component.html',
   styleUrls: ['./compinformacion.component.scss'],
 })
-export class CompinformacionComponent  implements OnInit {
+export class CompinformacionComponent {
+
+  @Input() userData: any;
 
   constructor() { }
 
-  ngOnInit() {}
 
   isModalOpen = false;
 

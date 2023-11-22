@@ -1,6 +1,8 @@
 export interface Cliente {
-    uid?: string;
+    id: string;
     nombre: string;
     celular: string;
     email: string;
+    password: string;
+
 }

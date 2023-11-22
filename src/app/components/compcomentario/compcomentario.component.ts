@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, MenuController, ToastController } from '@ionic/angular';
 import { Mercado } from 'src/app/interfaces/mercado';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { FirestorageService } from 'src/app/services/firestorage.service';
-
 
 @Component({
   selector: 'app-compcomentario',
@@ -16,8 +14,6 @@ export class CompcomentarioComponent  implements OnInit {
 
   newm: Mercado;
 
-  newI = '';
-
   enableNewc =false;
 
   private path= 'Comentarios/';
@@ -27,8 +23,7 @@ export class CompcomentarioComponent  implements OnInit {
               public firestoreService: FirestoreService,
               public loadingCtrl: LoadingController,
               public toastCtrl: ToastController,
-              public alertCtrl: AlertController,
-              public firestoregeService: FirestorageService ) { }
+              public alertCtrl: AlertController ) { }
 
   ngOnInit() {
     this.getComentarios();
@@ -44,7 +39,7 @@ export class CompcomentarioComponent  implements OnInit {
     this.firestoreService.crearDoc(this.newm,this.path,this.newm.id).then( res => {
       this.loading.dismiss();
       this.presentCtrl('Guadado con Exito!');
-      console.log( 'nfidnfiew' + this.newm, this.newI, this.newm.id );
+      console.log( 'nfidnfiew' + this.newm, this.newm.id );
     }).catch( error =>{
       this.presentCtrl('No fue posible guardar. Error: '+ error);
     });
@@ -56,60 +51,7 @@ export class CompcomentarioComponent  implements OnInit {
       this.mercados = res;
     }});
   }
-  async newImageUpload(event: any) {
-    try {
-      const path = 'Comentarios';
-      const name = 'prueba';
-      const file = event.target.files[0];
   
-      if (file) {
-        const reader = new FileReader();
-  
-        // Usar una promesa para esperar la carga del archivo
-        const fileLoadPromise = new Promise<string>((resolve, reject) => {
-          reader.onload = () => {
-            resolve(reader.result as string);
-          };
-  
-          reader.onerror = (error) => {
-            reject(error);
-          };
-  
-          reader.readAsDataURL(file);
-        });
-  
-        // Esperar a que el archivo se cargue antes de continuar
-        const fileDataUrl: string = await fileLoadPromise;
-  
-        // Llamar a la función de carga de imagen
-        const res = await this.firestoregeService.uploadImage(fileDataUrl, path, name);
-  
-        console.log('Recibir res de la promesa', res);
-        console.log('Fin de la función -> newImageUpload');
-      } else {
-        console.error('No se ha seleccionado ningún archivo.');
-      }
-    } catch (error) {
-      console.error('Error al cargar la imagen:', error);
-    }
-  }
- /* async newImageUpload(event: any){
-    /*if(event.target.files && event.target.files[0]){
-      const reader = new FileReader();
-      reader.onload = ((image) =>{
-        this.newI = image.target.result as string;
-      });
-      reader.readAsDataURL(event.target.file[0]);
-      console.log(reader.result);
-    }*/
-   /* const path = 'Comentarios';
-    const name= 'prueba';
-    const file = event.target.files[0];
-    const res = await this.firestoregeService.uploadImage(file, path, name)
-      console.log('recibir res de la promesa', res);
-      console.log('fin de la funcione ->newI');
-
-  }*/
 
   async deleteComentario(m: Mercado){
     const alert = await this.alertCtrl.create({
@@ -149,7 +91,6 @@ export class CompcomentarioComponent  implements OnInit {
       tipomer: '',
       comunamer: '',
       descripcion: '',
-      foto: '',
       ubicacion: '',
       id: this.firestoreService.getId(),
     };

@@ -8,15 +8,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import {HttpClientModule } from '@angular/common/http';
-import { ServiceRestService } from './services/service-rest.service';
 import { environment } from 'src/environments/environment';
 
 //Firebase
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+//import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
@@ -28,11 +25,10 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth()), ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ServiceRestService],
+    AngularFireStorageModule
+    //provideFirebaseApp(() => initializeApp(environment.firebaseConfig))
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

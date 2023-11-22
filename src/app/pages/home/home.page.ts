@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, } from '@ionic/angular';
+import { AuthService } from '../../services/authService';
 
 @Component({
   selector: 'app-home',
@@ -8,21 +9,25 @@ import { AlertController, } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  nombre: string = '';
+  segmentoActual: string = 'buscador';
+  userData: any;
 
-  data:any;
-  
   constructor(private activateRouter: ActivatedRoute,
-    private router: Router,
-    public alertController: AlertController) {
-
-      this.activateRouter.queryParams.subscribe(params =>{
-        if (this.router.getCurrentNavigation()?.extras.state){
-          this.data = this.router.getCurrentNavigation()?.extras.state?.['user'];
-          console.log(this.data)
-        }else{
-          this.router.navigate(['/inicio']);
-        }
-      })}
+     private router: Router, 
+     private authService: AuthService,
+     private alertController: AlertController) {
+    this.activateRouter.queryParams.subscribe((params) => {
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.userData = this.router.getCurrentNavigation()?.extras.state?.['user'];
+        this.nombre = this.userData.nombre
+        console.log(this.userData);
+      } else {
+        this.router.navigate(['/inicio']);
+      }
+    });
+  }
+  
   async presentAlert(){
     const alert = await this.alertController.create({
       header: 'Estas Seguro?',

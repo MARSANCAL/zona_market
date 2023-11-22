@@ -1,55 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
-import { AlertController,NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { AuthService } from '../../services/authService';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  folmularioLogin: FormGroup;
+formularioLogin: FormGroup;
+nombre: string = ''; 
 
-  user={
-    nombre: "",
-    password: ""
+  constructor(
+    public fb: FormBuilder,
+    public userService: AuthService,
+    public alertController: AlertController,
+    private router: Router
+  ) {
+    this.formularioLogin = this.fb.group({
+      nombre: new FormControl('', Validators.required),
+      celular: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
   }
 
-  constructor(public fb: FormBuilder, 
-    public navCtrl: NavController, 
-    public alertController: AlertController, 
-    private router: Router) { 
+  async ingresar() {
+    let formulario = this.formularioLogin.value;
 
-    this.folmularioLogin = this.fb.group({
-      'nombre' : new FormControl("",Validators.required),
-      'password' : new FormControl("",Validators.required),
-    })}
-  ngOnInit() {
-  }
-  async ingresar(){
-    let formulario = this.folmularioLogin.value;
+    const storedUserData = JSON.parse(localStorage.getItem('userData'));
 
-    if (formulario.nombre == "" || formulario.password == ""){
+    if (storedUserData && storedUserData.nombre === formulario.nombre && storedUserData.password === formulario.password) {
+      this.nombre = storedUserData.nombre; // Asigna el nombre a la variable
+      let navegationExtras: NavigationExtras = {
+        state: {
+          user: storedUserData
+        }
+      };
+      this.router.navigate(['/home/buscador'], navegationExtras);
+    } else {
       const alert = await this.alertController.create({
-        header: 'Datos Incorrectos' ,
+        header: 'Datos Incorrectos',
         message: 'Debe llenar los campos',
-        buttons: [ 'Reintentar' ]
+        buttons: ['Reintentar']
       });
       await alert.present();
-      return;
     }
-    //localstorage
-    localStorage.setItem('ingresado','true');
-    //state
-    let navegationExtras : NavigationExtras = {
-      state:{
-        user:this.user
-      }  
   }
-    this.router.navigate(['/home/buscador'], navegationExtras);
-  }
-
-
 }
