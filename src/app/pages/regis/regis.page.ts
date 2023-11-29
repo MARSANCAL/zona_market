@@ -13,7 +13,7 @@ export class RegisPage {
 
   loading: any;
 
-  private path= 'Clientes/';
+  private path= 'Cliente/';
 
   id = this.firestorService.getId();
   nombre: number;

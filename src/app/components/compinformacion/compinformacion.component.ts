@@ -1,16 +1,19 @@
-import { Component, Input,  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 
 @Component({
   selector: 'app-compinformacion',
   templateUrl: './compinformacion.component.html',
   styleUrls: ['./compinformacion.component.scss'],
 })
-export class CompinformacionComponent {
+export class CompinformacionComponent  {
 
-  @Input() userData: any;
+  userData: any;
 
   constructor() { }
 
+  ngOnInit(): void {
+    this.userData = JSON.parse(localStorage.getItem('userData'));
+  }
 
   isModalOpen = false;
 

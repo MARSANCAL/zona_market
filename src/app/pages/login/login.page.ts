@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { AuthService } from '../../services/authService';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +15,6 @@ nombre: string = '';
 
   constructor(
     public fb: FormBuilder,
-    public userService: AuthService,
     public alertController: AlertController,
     private router: Router
   ) {

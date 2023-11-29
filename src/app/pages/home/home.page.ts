@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, } from '@ionic/angular';
-import { AuthService } from '../../services/authService';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +14,6 @@ export class HomePage {
 
   constructor(private activateRouter: ActivatedRoute,
      private router: Router, 
-     private authService: AuthService,
      private alertController: AlertController) {
     this.activateRouter.queryParams.subscribe((params) => {
       if (this.router.getCurrentNavigation()?.extras.state) {

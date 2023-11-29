@@ -52,7 +52,12 @@ export class CompcomentarioComponent  implements OnInit {
     }});
   }
   
-
+  onPlaceChanged(event: any) {
+    const place = event.place;
+    if (place.geometry && place.geometry.location) {
+      this.newm.ubicacion = `${place.geometry.location.lat()}, ${place.geometry.location.lng()}`;
+    }
+  }
   async deleteComentario(m: Mercado){
     const alert = await this.alertCtrl.create({
       cssClass: "my-custom-class",

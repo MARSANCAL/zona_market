@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.zona_market.ionic;
 
 import com.getcapacitor.BridgeActivity;
 

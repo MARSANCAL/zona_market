@@ -1,25 +1,31 @@
 <ion-header id="head" [translucent]="true">
-<ion-grid>
-  <ion-row>
-  <ion-back-button></ion-back-button>
-    <ion-col> <img id="im"src="assets/img/Logo ZonaMarket1.png" /> </ion-col>
-    <ion-col></ion-col>
-    <ion-col></ion-col>
-  </ion-row>
-</ion-grid>   
+  <ion-grid>
+    <ion-row>
+      <ion-back-button></ion-back-button>
+      <ion-col> <img id="im" src="assets/img/Logo ZonaMarket1.png" /> </ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>   
 </ion-header>
 
-<ion-content padding class="background"  [fullscreen]="true">
-  <form id="container" [formGroup] ="folmularioForgot">
+<ion-content padding class="background" [fullscreen]="true">
+  <form id="container" [formGroup]="formularioForgot" (ngSubmit)="sendEmail()">
     <ion-item lines="full">
       <ion-label color="light" position="floating">Email</ion-label>
       <ion-input type="email" required formControlName="email"></ion-input>
     </ion-item><br><br>
-        <ion-button id="tamaño" type="submit" color="danger" (click)="presentAlert()">Enviar</ion-button>
+    <ion-button id="button" type="submit" color="danger" [disabled]="isSubmitting">Enviar</ion-button>
     <br><br>
     <small>
-      Proporcione el nombre de usuario o la dirección de correo electrónico que utilizó cuando firmó
-      para tu cuenta de ZonaMaket.
+      Proporcione el nombre de usuario o la dirección de correo electrónico que utilizó cuando firmó para tu cuenta de ZonaMarket.
     </small>
   </form>
 </ion-content>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+  emailjs.init('Wv9iRbxhPyQHtDw8y');
+</script>

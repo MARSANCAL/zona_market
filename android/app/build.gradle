@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-
-  namespace "io.ionic.starter"
-  compileSdkVersion compileSdkVersion
-  defaultConfig {
-        applicationId 'com.zona_market.ionic'
+    namespace "com.zona_market.ionic"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.zona_market.ionic"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName '1.1'
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
