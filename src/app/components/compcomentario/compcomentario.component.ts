@@ -28,6 +28,11 @@ export class CompcomentarioComponent  implements OnInit {
   ngOnInit() {
     this.getComentarios();
   }
+  isModalOpen4 = false;
+
+  setOpen4(isOpen4: boolean) {
+    this.isModalOpen4 = isOpen4;
+  }
 
   openMenu() {
     console.log('open menu');
@@ -118,4 +123,6 @@ export class CompcomentarioComponent  implements OnInit {
     });
     toast.present();
   }
+
+  
 }

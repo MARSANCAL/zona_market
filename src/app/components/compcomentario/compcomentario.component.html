@@ -44,7 +44,6 @@
       <ion-item lines="full">
         <ion-label position="floating">Ubicacion</ion-label>
         <ion-input [(ngModel)]="newm.ubicacion" name="ubicacion" ></ion-input>
-          <google-map-autocomplete (placeChanged)="onPlaceChanged($event)"></google-map-autocomplete>
 
       </ion-item>
 
@@ -65,7 +64,7 @@
 
   <ion-card-content>
     <ion-list>
-      <ion-item *ngFor="let m of mercados">
+      <ion-item *ngFor="let m of mercados ">
           <ion-label>Nombre de Mercado : {{m.nombremer}}</ion-label>
           <ion-label>Tipo de Mercado :{{m.tipomer}}</ion-label>
           <ion-label>Comuna de Mercado : {{m.comunamer}}</ion-label>

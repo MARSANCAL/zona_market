@@ -48,7 +48,6 @@ export class CompbuscarComponent  implements OnInit, OnDestroy {
 
           this.renderer.addClass(mapEl, 'visible');
           this.addMarker(userLocation);
-          this.onMapClick();
         },
         (error) => {
           console.error('Error al obtener la ubicación:', error);

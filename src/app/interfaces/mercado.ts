@@ -5,3 +5,4 @@ export interface Mercado {
     descripcion: string;
     ubicacion: string;
     id: string;}
+    

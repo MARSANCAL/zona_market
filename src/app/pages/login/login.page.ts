@@ -30,6 +30,7 @@ nombre: string = '';
     let formulario = this.formularioLogin.value;
 
     const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    console.log('Datos almacenados en localStorage:', storedUserData);
 
     if (storedUserData && storedUserData.nombre === formulario.nombre && storedUserData.password === formulario.password) {
       this.nombre = storedUserData.nombre; // Asigna el nombre a la variable

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { IngresadoGuard } from './guards/ingresado.guard';
+//import { IngresadoGuard } from './guards/ingresado.guard';
 //import { NoIngresadoGuard } from './guards/no-ingresado.guard';
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canActivate: [IngresadoGuard]
+    //canActivate: [IngresadoGuard]
   },
   {
     path: 'register',
