@@ -24,19 +24,25 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule) //,canActivate: [NoIngresadoGuard]
   },
   {
+    path: 'register-google',
+    loadChildren: () => import('./pages/register-google/register-google.module').then( m => m.RegisterGooglePageModule)
+  },
+  {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule) //,canActivate: [NoIngresadoGuard]
   },
+
+  {
+    path: 'edit-mercado/:id',
+    loadChildren: () => import('./pages/edit-mercado/edit-mercado.module').then( m => m.EditMercadoPageModule),
+    canActivate: [IngresadoGuard]
+  },
+
   {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule) //,canActivate: [NoIngresadoGuard]
 
   },
-  {
-    path: 'edit-mercado/:id',
-    loadChildren: () => import('./pages/edit-mercado/edit-mercado.module').then( m => m.EditMercadoPageModule),
-    canActivate: [IngresadoGuard]
-  }
 ];
 
 @NgModule({
